@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomFilledTextFieldEmail" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/shape_02_white</item>
+
+        <item name="boxStrokeColor">@color/purple</item>
+        <item name="boxStrokeWidth">0dp</item>
+
+        <item name="shapeAppearance">@style/CustomFilledShape</item>
+
+        <item name="fontFamily">@font/poppins</item>
+
+        <item name="boxBackgroundMode">filled</item>
+        <item name="android:textColor">@color/text_complement</item>
+    </style>
+
+    <style name="CustomFilledShape" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
+
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+</resources>
