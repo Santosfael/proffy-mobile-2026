@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Proffy" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:windowSplashScreenBackground">@color/purple</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/intro</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/logo</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
     </style>
