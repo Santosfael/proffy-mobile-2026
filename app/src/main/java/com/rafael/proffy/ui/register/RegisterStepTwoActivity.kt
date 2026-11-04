@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import com.rafael.proffy.R
 import com.rafael.proffy.databinding.ActivityRegisterStepTwoBinding
+import com.rafael.proffy.ui.finallyComponent.FinallyActivity
 import org.intellij.lang.annotations.Pattern
 
 class RegisterStepTwoActivity : AppCompatActivity() {
@@ -37,6 +38,11 @@ class RegisterStepTwoActivity : AppCompatActivity() {
         val textInputPassword = binding.textInputEditPassword
         val buttonFinish = binding.buttonFinish
 
+        val firstName = intent.getStringExtra("firstName")
+        val lastName = intent.getStringExtra("lastName")
+
+        println("Primeiro nome: $firstName, Sobrenome: $lastName")
+
         buttonGoBackStepOne.setOnClickListener {
             goBack()
         }
@@ -56,6 +62,10 @@ class RegisterStepTwoActivity : AppCompatActivity() {
             val lastName = textInputPassword.text?.toString()?.trim() ?: ""
             val validInputs = fistName.isNotEmpty() && lastName.isNotEmpty()
             setButtonState(validInputs, enabledButtonColor, disabledButtonColor)
+        }
+
+        buttonFinish.setOnClickListener {
+            sendDoneRegister()
         }
     }
 
@@ -90,5 +100,15 @@ class RegisterStepTwoActivity : AppCompatActivity() {
     }
     private fun isValidEmail(email: String): Boolean {
         return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun sendDoneRegister() {
+        val intent = Intent(this, FinallyActivity::class.java)
+        intent.putExtra("textViewTitleFinally", "Cadastro\nconcluído!")
+        intent.putExtra("textViewSubtitleFinally", "Agora você faz parte da\nplataforma da Proffy")
+        intent.putExtra("titleButton", "Fazer Login")
+
+        startActivity(intent)
+        finish()
     }
 }
